@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Lucene Search"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/PrimeFaces"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring"/>
+	<classpathentry kind="lib" path="/home/prince/eclipse/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.6.3.v201202290255r37/appengine-java-sdk-1.6.3/lib/opt/user/datanucleus/v2/geronimo-jpa_2.0_spec-1.0.jar"/>
+	<classpathentry kind="lib" path="/home/prince/eclipse/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.6.3.v201202290255r37/appengine-java-sdk-1.6.3/lib/opt/user/datanucleus/v2/jdo-api-3.0.jar"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER/appengine-java-sdk-1.6.3"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/log4j.jar"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>

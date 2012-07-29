@@ -1,0 +1,39 @@
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+    <definition name="template" template="/WEB-INF/views/template/template.jsp"/>
+
+    <definition name="home" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/home.jsp"/>
+    </definition>
+
+    <!-- accounts pages -->
+    <!-- <definition name="accounts/list" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/accounts/list.jsp"/>
+    </definition>
+
+    <definition name="accounts/summary" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/accounts/summary.jsp"/>
+    </definition>
+
+    <definition name="accounts/details" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/accounts/details.jsp"/>
+    </definition>
+    mobile service details
+    <definition name="accounts/service/details" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/accounts/service/details.jsp"/>
+    </definition>
+                            account history
+    <definition name="accounts/history/details" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/accounts/history/details.jsp"/>
+    </definition>
+
+    <definition name="accounts/history/search" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/accounts/history/search.jsp"/>
+    </definition>
+    <definition name="accounts/history/results" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/accounts/history/results.jsp"/>
+    </definition> -->
+</tiles-definitions>
