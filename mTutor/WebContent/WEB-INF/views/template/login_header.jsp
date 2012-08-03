@@ -14,8 +14,8 @@
 
 		</p>
 
-		<p class="f-right">User: <strong><a href="#">Administrator</a></strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><a href="#" id="logout">Log out</a></strong></p>
-
+	<!-- 	<p class="f-right">User: <strong><a href="#">Administrator</a></strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><a href="#" id="logout">Log out</a></strong></p>
+ -->
 	</div> <!--  /tray -->
 
 	<hr class="noscreen" />
@@ -26,14 +26,14 @@
 		
 
 		<ul class="box">
-			<li id="menu-active"><a href="#"><span>System Users</span></a></li> <!-- Active -->
+			<!-- <li id="menu-active"><a href="#"><span>System Users</span></a></li> Active
 			<li><a href="subject"><span>Subjects</span></a></li>
 			<li><a href="#"><span>Schools</span></a></li>
 			<li><a href="#"><span>Teachers</span></a></li>
 			<li><a href="#"><span>Classes</span></a></li>
 			<li><a href="#"><span>Quizzes</span></a></li>
 			<li><a href="#"><span>Reports</span></a></li>
-			<li><a href="#"><span>Change Password</span></a></li>
+			<li><a href="#"><span>Change Password</span></a></li> -->
 			
 		</ul>
 

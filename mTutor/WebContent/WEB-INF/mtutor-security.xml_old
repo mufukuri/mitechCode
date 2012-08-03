@@ -18,13 +18,11 @@
 	
 	
 
-	<security:http auto-config="true" use-expressions="true">
-	    <security:form-login login-page="/login"
-                login-processing-url="/static/j_spring_security_check"  
-                authentication-failure-url="/login"/>
- <security:http-basic/>
+	<security:http auto-config="true">
+	    <security:form-login/>
+<security:http-basic/>
 <security:logout/>
-	<security:intercept-url pattern="/home" access="hasRole('ROLE_ADMIN')" /> 
+	<security:intercept-url pattern="/**" access="ROLE_ADMIN" />
 	
 	</security:http>
 

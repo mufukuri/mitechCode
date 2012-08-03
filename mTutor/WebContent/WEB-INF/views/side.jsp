@@ -11,15 +11,15 @@
 				
 
 				<!-- Create a new project -->
-				<p id="btn-create" class="box"><a href="#"><span>Navigation</span></a></p>
+				<!-- <p id="btn-create" class="box"><a href="#"><span>Navigation</span></a></p -->
 
 			</div> <!-- /padding -->
 
 			<ul class="box">
-				<li id="submenu-active"><a  href="subject">Subjects</a></li>
+				<!-- <li id="submenu-active"><a  href="subject">Subjects</a></li>
 				<li><a href="#">Topics</a></li>
 				<li><a href="#">Concepts</a></li>
-				
+				 -->
 				
 			</ul>
 			

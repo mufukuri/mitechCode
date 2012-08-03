@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateNewsStoryTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form>
+                <p:panelGrid columns="2"  styleClass="myPanelGrid">
+                <p:panelGrid columns="1" styleClass="myPanelGrid">
+               <p:panel id="requestPanel" header="Mobile Request" >
+                   <p:panelGrid columns="2"  styleClass="myPanelGrid">
+                       <h:outputText value="Mobile"></h:outputText>
+                       <h:inputText value="#{simulatorController.mobileNumber}" />
+                       <h:outputText value="Request"></h:outputText>
+                       <h:inputText value="#{simulatorController.input}" />
+                       <p:commandButton action="#{simulatorController.ussdRequest}" value="Send USSD Request"  update="requestPanel,smsPanel,responsePanel,lengthPanel"  />
+                         <p:commandButton action="#{simulatorController.smsRequest}" value="Send Sms Request"  update="requestPanel,smsPanel,responsePanel,lengthPanel"  />
+                       
+                   </p:panelGrid>
+               </p:panel>
+                    
+                    
+                    
+                    <p:panel id="smsPanel" header="SmsInbox" > 
+               
+                        <p:dataTable id="table" var="sms" value="#{simulatorController.smses}"  
+                rowStyleClass="#{sms.status eq 'read' ? 'old' : null}">  
+        <p:column>  
+            <f:facet name="header">  
+                    Sender  
+                  
+            </f:facet>  
+            <h:outputText value="#{sms.source}" />  
+        </p:column>  
+  
+                            
+                 
+        <p:column>  
+            <f:facet name="header">  
+                    Message  
+            </f:facet>  
+            <h:outputText value="#{sms.sms}" />  
+        </p:column>  
+  
+        <p:column>  
+            <f:facet name="header">  
+                    Time Received  
+            </f:facet>  
+            <h:outputText value="#{sms.dateCreated}">
+                  <f:convertDateTime pattern="dd MMM yyyy HH:mm" />
+            </h:outputText> 
+        </p:column>
+                            
+            <p:column>  
+            <f:facet name="header">  
+                     
+            </f:facet>  
+            
+                <p:commandButton actionListener="#{simulatorController.viewSms}" value="View"  update="@form" icon="ui-icon-search" >
+                    <f:attribute name="smsId" value="#{sms.id}" />
+                </p:commandButton>
+                      
+            
+        </p:column> 
+                            
+                           
+         
+    </p:dataTable>  
+                        
+                        
+               </p:panel>
+                </p:panelGrid>
+                 <p:panelGrid columns="1" styleClass="myPanelGrid">
+               <p:panel id="responsePanel" style=" height: 390px;width: 296px; background: url(resources/images/cellphone.jpg); padding-left: 133px;padding-top: 108px" > 
+                   <p:inputTextarea style="left: 148px;top: 118px;height: 270px ; width: 183px" value="#{simulatorController.mobileResponse}"></p:inputTextarea>
+               </p:panel>
+                     <p:panelGrid columns="2"  styleClass="myPanelGrid" id="lengthPanel">
+                       <h:outputText value="Message Length"></h:outputText>
+                       <h:outputText value="#{simulatorController.length}"></h:outputText>
+                   </p:panelGrid>
+                 </p:panelGrid>
+            </p:panelGrid>
+            
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
