@@ -4,6 +4,8 @@
  */
 package zw.co.mitech.mtutor.session;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -31,5 +33,13 @@ public class UserFacade extends AbstractFacade<User> {
     public UserFacade() {
         super(User.class);
     }
+
+	public List<User> getUsers() {
+		
+		return findAll();
+	}
+    
+    
+    
     
 }

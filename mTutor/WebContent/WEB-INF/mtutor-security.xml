@@ -23,8 +23,13 @@
                 login-processing-url="/static/j_spring_security_check"  
                 authentication-failure-url="/login"/>
  <security:http-basic/>
-<security:logout/>
-	<security:intercept-url pattern="/home" access="hasRole('ROLE_ADMIN')" /> 
+<security:logout logout-url="/static/j_spring_security_logout" />
+<security:intercept-url pattern="/home" requires-channel="http"/>
+
+	<security:intercept-url pattern="/home" access="isAuthenticated()" /> 
+	
+	<security:remember-me key="mtutorKey"
+  		token-validity-seconds="2419200" />   
 	
 	</security:http>
 
@@ -33,9 +38,9 @@
 authorities-by-username-query="select username,role from User where username=?"
 data-source-ref="dataSource"  />
 
-	 <security:authentication-manager  alias="authenticationManager">
+	<!--  <security:authentication-manager  alias="authenticationManager">
     <security:authentication-provider user-service-ref="userService" />
-  </security:authentication-manager>
+  </security:authentication-manager> -->
 	
 <security:authentication-manager alias="authenticationManager">
     <security:authentication-provider user-service-ref="userService" />

@@ -24,6 +24,10 @@
             </list>
         </property>
     </bean>
+    
+    
+ 
+    
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver" p:favorParameter="true">
         <property name="viewResolvers">
             <list>

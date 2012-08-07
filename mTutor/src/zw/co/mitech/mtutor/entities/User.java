@@ -17,11 +17,13 @@ public class User implements Persistable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String fullName;
 	private String username;
 	private String password;
 	private String ownerType;
 	private String ownerId;
 	private String role;
+	private String email;
 	
 	public Long getId() {
 		return id;
@@ -60,6 +62,21 @@ public class User implements Persistable {
 		this.role = role;
 	}
 	
+	
+	
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getFullName() {
+		return fullName;
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
 	@Override
 	  public boolean equals(Object object) {
         if (!(object instanceof User)) {
@@ -85,6 +102,11 @@ public class User implements Persistable {
 	}
 	public void setVersion(long version) {
 		this.version = version;
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getUsername().toString();
 	}
 	
 	

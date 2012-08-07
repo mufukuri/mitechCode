@@ -21,8 +21,24 @@
       <put-attribute name="aside" value="/WEB-INF/views/side.jsp" />
      
    
+      
    </definition>
     
+    
+     <!-- user profile pages -->
+       <definition name="users/edit" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/users/edit.jsp"/>
+    </definition>
+      
+         <definition name="users/list" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/users/list.jsp"/>
+    </definition>
+    
+          <definition name="users/view" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/users/view.jsp"/>
+    </definition>
+       
+       
     
     <!-- accounts pages -->
     <!-- <definition name="accounts/list" extends="template">
