@@ -5,28 +5,29 @@
  <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
  
 
-<h2>User Profiles</h2>
-<div>
+<h2>Schools</h2>
 <table >
   <tr>
-        <th>User Name</th>
-        <th>Full Name</th>
-        <th>Email</th>
-         <th>Role</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Town</th>
+         <th>Province</th>
     </tr>
-<c:forEach items="${userList}" var="user">
+<c:forEach items="${schoolList}" var="school">
   
    <tr>
-            <td>${user.username}</td>
-            <td>${user.fullName}</td>
-            <td>${user.email}</td>
-             <td>${user.role}</td>
+            <td>${school.schoolName}</td>
+            <td>${school.address}</td>
+            <td>${school.city}</td>
+             <td>${school.province}</td>
         </tr>
 </c:forEach>
 
+
+
 </table>
-</div>
+
 <br/>
 <div>
-<a href="users?new"><span>New Profile</span></a>
+<a href="schools?new"><span>New School</span></a>
 </div>

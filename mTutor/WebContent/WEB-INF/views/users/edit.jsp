@@ -1,22 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+    
+   <style>
+.error {
+	color: #ff0000;
+}
+</style>
 <div>
 <h2>Create mTutor Profile</h2>
 <sf:form method="POST" modelAttribute="user">         
    <fieldset> 
-   <table cellspacing="0">
+   <table>
       <tr>
          <th><sf:label path="fullName">Full name:</sf:label></th>
          <td><sf:input path="fullName" size="15" /><br/>
-             <sf:errors path="fullName" cssClass="error" />
+             <sf:errors path="fullName" cssClass="errors" />
          </td>
       </tr>
       <tr>
          <th><sf:label path="username">Username:</sf:label></th>
          <td><sf:input path="username" size="15" maxlength="15" />
               <small id="username_msg">No spaces, please.</small><br/>
-             <sf:errors path="username" cssClass="error" />
+             <sf:errors path="username"  cssClass="errors" />
 
             </td>
       </tr>
@@ -25,7 +31,7 @@
          <td><sf:password path="password" size="30" 
                             showPassword="true"/> 
              <small>6 characters or more (be tricky!)</small><br/>
-             <sf:errors path="password" cssClass="error" />
+             <sf:errors path="password" cssClass="errors" />
             </td>
       </tr>
 
@@ -34,7 +40,7 @@
 
          <td><sf:input path="email" size="30"/> 
              <small>In case you forget something</small><br/>
-             <sf:errors path="email" cssClass="error" />
+             <sf:errors path="email" cssClass="errors" />
             </td>
       </tr>
       <!--<start id="image_field"/>--> 

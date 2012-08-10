@@ -21,13 +21,13 @@
 	<security:http auto-config="true" use-expressions="true">
 	    <security:form-login login-page="/login"
                 login-processing-url="/static/j_spring_security_check"  
-                authentication-failure-url="/login"/>
+                authentication-failure-url="/loginfailed"/>
  <security:http-basic/>
-<security:logout logout-url="/static/j_spring_security_logout" />
+<security:logout logout-url="/j_spring_security_logout" />
 <security:intercept-url pattern="/home" requires-channel="http"/>
 
 	<security:intercept-url pattern="/home" access="isAuthenticated()" /> 
-	
+	<security:intercept-url pattern="/" access="isAuthenticated()" /> 
 	<security:remember-me key="mtutorKey"
   		token-validity-seconds="2419200" />   
 	

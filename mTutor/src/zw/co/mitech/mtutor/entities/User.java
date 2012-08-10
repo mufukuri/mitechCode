@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.Pattern;
 
 
 
@@ -23,6 +24,7 @@ public class User implements Persistable {
 	private String ownerType;
 	private String ownerId;
 	private String role;
+	@Pattern(regexp="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}",message="Invalid email address.")
 	private String email;
 	
 	public Long getId() {

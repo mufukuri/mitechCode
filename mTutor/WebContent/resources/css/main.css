@@ -35,6 +35,8 @@ h1, h2, h3, h4, h5, h6, address, blockquote, dl, fieldset, ol, p, table, ul {mar
 #content legend {font-size:120%; font-weight:bold;}
 #content code {font-family:"",monospace;}
 #content .help {cursor:help;}
+#content .errors  {background:url("../design/ico-delete.gif") 10px 50% no-repeat;color: red;}
+#content .infoMsg  {background:url("../design/ico-info.gif") 10px 50% no-repeat;}
 
 /* =============================================================================
 HTML - without styles
@@ -117,7 +119,8 @@ OTHERS
 .msg.warning {background:url("../design/ico-warning.gif") 10px 50% no-repeat;}
 .msg.info {background:url("../design/ico-info.gif") 10px 50% no-repeat;}
 .msg.done {background:url("../design/ico-done.gif") 10px 50% no-repeat;}
-.msg.error {background:url("../design/ico-delete.gif") 10px 50% no-repeat;}
+.msg.error {background:url("../design/ico-delete.gif") 10px 50% no-repeat;color: red;font: 30px}
+
 
 /* =============================================================================
 FONT STYLES

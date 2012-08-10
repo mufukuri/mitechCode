@@ -4,40 +4,33 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import zw.co.mitech.mtutor.entities.School;
-import zw.co.mitech.mtutor.entities.Subject;
 import zw.co.mitech.mtutor.service.SchoolService;
-import zw.co.mitech.mtutor.service.SubjectService;
-import zw.co.mitech.mtutor.util.Txt;
 
 @Controller
-@RequestMapping("/subjects")
-public class SubjectController {
-
+@RequestMapping("/schools")
+public class SchoolController {
 	
 	@Autowired
-	private SubjectService subjectService;
+	private SchoolService schoolService;
 	
 	 @RequestMapping(method = RequestMethod.POST)
-	    public ModelAndView addUser(@Valid Subject subject, BindingResult result,Model model) {
+	    public String addUser(@Valid School school, BindingResult result,Model model) {
 	 
 		  if(result.hasErrors()) {
-			
-			  return new ModelAndView("subjects/edit", "subject", subject);
+			  return "schools/edit";
 			  }
-
-		subjectService.addSubject(subject);
+System.out.println("School>>>>>>>>>>>>"+school);
+			schoolService.addSchool(school);
 	 
-	        return new ModelAndView("subjects/view", "subject", subject);
+	        return gotoListPage(model);
 	    }
 	 
 
@@ -46,22 +39,30 @@ public class SubjectController {
 
 	public String createNewSchool(Model model){
 		 model.addAttribute(new School());
-		return "subjects/edit";
+		return "schools/edit";
 	}
 
 	
 	@RequestMapping( method = RequestMethod.GET,params="list")
 	public String listUsers(Model model) {
 		
-		List<Subject> subjects= subjectService.getSubjects();
-	
+		List<School> schools= schoolService.getSchools();
+		System.out.println(">>>>>>>>>>>>Schools>>>>>>>"+schools);
+		if(schools!=null){
+			System.out.println("Size>>>>>>>>>>>>"+schools.size());
+		}
+		model.addAttribute(schools);
 		
-		model.addAttribute(subjects);
-		
-		return "subjects/list";
+		return "schools/list";
 	}
 
 
+
+	public String gotoListPage(Model model) {
+		List<School> school = schoolService.getSchools();
+		model.addAttribute(school);
+		return "schools/list";
+	}
 
 
 }

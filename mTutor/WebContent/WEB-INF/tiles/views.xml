@@ -26,7 +26,7 @@
     
     
      <!-- user profile pages -->
-       <definition name="users/edit" extends="template">
+     <definition name="users/edit" extends="template">
         <put-attribute name="content" value="/WEB-INF/views/users/edit.jsp"/>
     </definition>
       
@@ -39,7 +39,37 @@
     </definition>
        
        
+     <!-- subject pages -->
+      <definition name="subjects/edit" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/subjects/edit.jsp"/>
+    </definition>
+      
+         <definition name="subjects/list" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/subjects/list.jsp"/>
+    </definition>
     
+          <definition name="subjects/view" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/subjects/view.jsp"/>
+    </definition>
+     
+    
+          
+          
+          
+             
+     <!-- school pages -->
+      <definition name="schools/edit" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/schools/edit.jsp"/>
+    </definition>
+      
+         <definition name="schools/list" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/schools/list.jsp"/>
+    </definition>
+    
+          <definition name="schools/view" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/schools/view.jsp"/>
+    </definition>
+          
     <!-- accounts pages -->
     <!-- <definition name="accounts/list" extends="template">
         <put-attribute name="content" value="/WEB-INF/views/accounts/list.jsp"/>

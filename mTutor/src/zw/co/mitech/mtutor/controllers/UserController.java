@@ -2,13 +2,17 @@ package zw.co.mitech.mtutor.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import zw.co.mitech.mtutor.entities.User;
 import zw.co.mitech.mtutor.service.UserService;
@@ -23,13 +27,18 @@ public class UserController {
 	
 	
 
-	  @RequestMapping(value = "/users/add", method = RequestMethod.POST)
-	    public String addUser(@ModelAttribute("user")
-	    User user, BindingResult result) {
+	  @RequestMapping(method = RequestMethod.POST)
+	    public ModelAndView addUser(@Valid User user, BindingResult result,Model model) {
 	 
+		  if(result.hasErrors()) {
+			  return new ModelAndView("users/edit", "user", user);
+			  }
+		  System.out.println("User>>>>>>>>>>>>"+user);
 	        userService.addUser(user);
 	 
-	        return "redirect:/index";
+	       // return gotoListPage(model);
+	        return new ModelAndView("users/view", "user", user);
+	        
 	    }
 	 
 
@@ -42,8 +51,8 @@ public class UserController {
 	}
 
 	
-	@RequestMapping(value = "/users/list", method = RequestMethod.GET)
-	public String listSpittlesForSpitter(Model model) {
+	@RequestMapping(method = RequestMethod.GET, params="list")
+	public String listUsers(Model model) {
 		
 		List<User> users = userService.getUsers();
 		System.out.println(">>>>>>>>>>>>users>>>>>>>"+users);
@@ -52,6 +61,14 @@ public class UserController {
 		}
 		model.addAttribute(users);
 		
+		return "users/list";
+	}
+
+
+
+	public String gotoListPage(Model model) {
+		List<User> users = userService.getUsers();
+		model.addAttribute(users);
 		return "users/list";
 	}
 

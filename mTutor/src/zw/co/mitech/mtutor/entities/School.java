@@ -73,6 +73,10 @@ public class School  implements Serializable, Persistable {
 	public void setVersion(long version) {
 		this.version = version;
 	}
+	@Override
+	public String toString() {
+		return "School [schoolName=" + schoolName + "]";
+	}
     
     
 
