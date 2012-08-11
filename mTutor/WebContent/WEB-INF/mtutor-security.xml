@@ -28,6 +28,7 @@
 
 	<security:intercept-url pattern="/home" access="isAuthenticated()" /> 
 	<security:intercept-url pattern="/" access="isAuthenticated()" /> 
+
 	<security:remember-me key="mtutorKey"
   		token-validity-seconds="2419200" />   
 	

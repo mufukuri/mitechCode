@@ -8,7 +8,7 @@
    <fieldset> 
    <table >
       <tr>
-         <th><sf:label path="fullName">Full name:</sf:label></th>
+         <th><sf:label path="name">Subject Name:</sf:label></th>
          <td><c:out value="${subject.name}"></c:out> 
             
          </td>
@@ -20,4 +20,9 @@
 </fieldset>
 
 
+</div>
+
+<div>
+
+<a href="subjects?new"><span>New Profile</span></a>
 </div>

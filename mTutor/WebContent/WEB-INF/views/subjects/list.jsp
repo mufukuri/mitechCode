@@ -11,7 +11,7 @@
 <h2>Subjects</h2>
 <table >
   <tr>
-        <th>Name</th>
+        <th>Subject Name</th>
        
     </tr>
 <c:forEach items="${subjectList}" var="subject">
@@ -24,3 +24,9 @@
 
 
 </table>
+<br/>
+
+<div>
+
+<a href="subjects?new"><span>New Subject</span></a>
+</div>

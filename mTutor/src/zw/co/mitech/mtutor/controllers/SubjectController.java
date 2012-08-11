@@ -45,7 +45,7 @@ public class SubjectController {
 	@RequestMapping(method=RequestMethod.GET, params="new")
 
 	public String createNewSchool(Model model){
-		 model.addAttribute(new School());
+		 model.addAttribute(new Subject());
 		return "subjects/edit";
 	}
 
