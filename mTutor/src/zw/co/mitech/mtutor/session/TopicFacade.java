@@ -54,6 +54,22 @@ public class TopicFacade extends AbstractFacade<Topic> {
 		return query.getResultList();
 	}
 
+	public List<Topic> findTopicsOrderedByGrade(){
+		String sql = "SELECT t FROM Topic t ORDER BY t.academicLevelId ASC ";
+		EntityManager em = getEntityManager();
+		Query query = em.createQuery(sql);
 	
+		return query.getResultList();
+	}
+
+	public List<Topic> getTopicsBySubjectOrderedByGrade(Long subjectId) {
+
+		String sql = "SELECT t FROM Topic t WHERE t.subjectId= :subjectId ORDER BY t.topicName ASC ";
+		EntityManager em = getEntityManager();
+		Query query = em.createQuery(sql);
+		query.setParameter("subjectId", subjectId);
+		return query.getResultList();
+	
+	}
     
 }

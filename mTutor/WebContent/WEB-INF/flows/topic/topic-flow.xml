@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/webflow 
+  http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+  <var name="topic" 
+       class="zw.co.mitech.mtutor.entities.Topic"/>
+  
+  
+  
+  <subflow-state id="buildTopic" subflow="topic/topicCreation"> <!--<co id="topicCreation_subflow"/>-->
+    <input name="topic" value="topic"/>
+    <transition on="topicCreated" to="saveTopic" />
+  </subflow-state>
+      
+  <subflow-state id="addConcept" subflow="topic/concept"> <!--<co id="addConcept_subflow"/>-->
+    <input name="topic" value="topic"/>
+    <transition on="addConcept" to="viewTopicInfo"/>      
+  </subflow-state>
+      
+  <action-state id="saveTopic"> <!--<co id="co_saveOrder_action"/>-->
+    <evaluate expression="topicFlowActions.saveTopic(topic)" />
+    <transition to="addConcept" />
+  </action-state>
+ 
+  
+  <view-state id="viewTopicInfo"> <!--<co id="co_viewTopicInfo_view"/>-->
+    <transition to="endState" />
+  </view-state>
+           
+  <end-state id="endState" />
+  
+  <global-transitions>
+    <transition on="cancel" to="endState" /><!--<co id="cancel_global_transition"/>-->
+  </global-transitions>
+</flow>

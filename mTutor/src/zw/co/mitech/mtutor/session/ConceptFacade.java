@@ -1,5 +1,7 @@
 package zw.co.mitech.mtutor.session;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -46,5 +48,28 @@ public class ConceptFacade  extends AbstractFacade<Concept>  {
 		}
 	}
 
+	public List<Concept> getConceptsByTopicIdOrderedBySequence(Long topicId) {
+		String sql = "SELECT c FROM Concept c WHERE  c.topicId = :topic ORDER BY c.topicSequence ASC";
+		EntityManager em = getEntityManager();
+		Query query = em.createQuery(sql);
+	
+		query.setParameter("topic", topicId);
+		
+		
+	return (List<Concept>) query.getResultList();
+		
+	}
+
+	public long getTopicSequence(Long topicId) {
+		String sql = "SELECT COUNT(c) FROM Concept c WHERE  c.topicId = :topic";
+		EntityManager em = getEntityManager();
+		Query query = em.createQuery(sql);
+	
+		query.setParameter("topic", topicId);
+		
+	return	(Long) query.getSingleResult();
+	
+		
+	}
 
 }

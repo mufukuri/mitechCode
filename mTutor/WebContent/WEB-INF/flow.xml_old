@@ -23,8 +23,9 @@
   <!--<start id="flow_registry"/>--> 
   <flow:flow-registry id="flowRegistry" 
            flow-builder-services="flowBuilderServices"
-           base-path="/WEB-INF/flows">
+           base-path="/WEB-INF/flows/">
      <flow:flow-location-pattern value="/**/*-flow.xml" />
+
   </flow:flow-registry>
 
   <flow:flow-builder-services id="flowBuilderServices" 
@@ -34,7 +35,7 @@
   <!--<start id="mvcFactoryCreator"/>--> 
   <bean id="mvcViewFactoryCreator" class=
       "org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
-     <property name="defaultViewSuffix" value=".jspx" />   
+     <property name="defaultViewSuffix" value=".jsp" />   
   </bean>
   <!--<end id="mvcFactoryCreator"/>-->  
 

@@ -18,6 +18,8 @@
   
    <tr>
             <td>${subject.name}</td>
+            <td><a href="<s:url value="/subjects/${subject.id}"/>">View Topics</a></td>
+          
            
         </tr>
 </c:forEach>

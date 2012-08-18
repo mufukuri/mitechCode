@@ -1,7 +1,5 @@
 package zw.co.mitech.mtutor.controllers;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.SimpleFormController;
-import org.springframework.web.servlet.view.RedirectView;
 
 import zw.co.mitech.mtutor.entities.AcademicLevel;
 import zw.co.mitech.mtutor.entities.Subject;
@@ -30,107 +26,90 @@ import zw.co.mitech.mtutor.service.SubjectService;
 import zw.co.mitech.mtutor.service.TopicService;
 
 @Controller
-@RequestMapping("/subjects")
-public class SubjectController{
+@RequestMapping("/topics")
+public class TopicController {
 
-	
-	@Autowired
-	private SubjectService subjectService;
-	@Autowired
-	private AcademicLevelService academicService;
 	
 	@Autowired
 	private TopicService topicService;
+	@Autowired
+	private AcademicLevelService academicService;
+	@Autowired
+	private SubjectService subjectService;
+	
+	
+	
+	@RequestMapping(value="/{id}",method= RequestMethod.GET)
+public String showTopics(@PathVariable Long id, Model model, HttpServletRequest request){
+		
+System.out.println("Topic Id >>>>>>"+id);
+		
+	
+		request.getSession().setAttribute("topicId", id);
+
+		
+		
+		//return "topics/viewTopics";
+	
+		return "redirect:/concepts";
+}
 	
 	 @RequestMapping(method = RequestMethod.POST)
-	    public ModelAndView addUser(@Valid Subject subject, BindingResult result,Model model) {
+	    public ModelAndView addTopic(@Valid Topic topic, BindingResult result,Model model, HttpServletRequest request) {
 	 
 		  if(result.hasErrors()) {
 			
-			  return new ModelAndView("subjects/edit", "subject", subject);
+			  return new ModelAndView("topics/addTopic", "topic", topic);
 			  }
 
-		subjectService.addSubject(subject);
-	 
-	        return new ModelAndView("subjects/view", "subject", subject);
+		  topicService.addTopic(topic);
+		  System.out.println("1Topic info>>>>>>>>>>"+topic.getAcademicLevelId());
+		  System.out.println("T2opic info>>>>>>>>>>"+topic.getDescription());
+		  System.out.println("3Topic info>>>>>>>>>>"+topic.getSubjectId());
+		  System.out.println("4Topic info>>>>>>>>>>"+topic.getTopicName());
+		  System.out.println("5Topic info>>>>>>>>>>"+topic.getTopicType());
+		  System.out.println("6Topic info>>>>>>>>>>"+topic.getToUpgrade());
+		  
+		  
+		  request.getSession().setAttribute("topic", topic);
+		  
+	        return new ModelAndView("topics/view", "topic", topic);
 	    }
 	 
 
 
 	@RequestMapping(method=RequestMethod.GET, params="new")
 
-	public String createNewSchool(Model model){
-		 model.addAttribute(new Subject());
-		return "subjects/edit";
+	public String createNewTopic(Model model){
+		 model.addAttribute(new Topic());
+		return "concepts/addConcept";
 	}
 
 	
 	@RequestMapping( method = RequestMethod.GET,params="list")
 	public String listUsers(Model model) {
-		System.out.println("Subjects");
-		List<Subject> subjects= subjectService.getSubjects();
+		
+		List<Topic> topics= topicService.getTopics();
 	
-		
-		model.addAttribute(subjects);
-		
-		return "subjects/list";
-	}
-	@RequestMapping(value="/{id}",method= RequestMethod.GET)
-public String showTopics(@PathVariable Long id, Model model, HttpServletRequest request){
-		
-System.out.println("Subject Id >>>>>>"+id);
-		
-		List<Topic> topics= topicService.getTopicsBySubjectOrderedByGrade(id);
-		request.getSession().setAttribute("subjectId", id);
-	request.setAttribute("subjectId", id);
 		
 		model.addAttribute(topics);
+		
+		return "topics/list";
+	}
+	@RequestMapping(method=RequestMethod.GET)
+	public String listTopics(Model model, HttpServletRequest request) {
+		//System.out.println("Subject Id >>>>>>"+subjectId);
+		System.out.println("Model does it have a thing >>>>>>>>>"+model);
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>id for subject >>>>"+request.getAttribute("subjectId"));
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>subject is Session>>>>"+request.getSession().getAttribute("subjectId"));
+		Long subjectId = (Long) request.getSession().getAttribute("subjectId");
+		List<Topic> topics= topicService.getTopicsBySubjectOrderedByGrade(subjectId);
 		System.out.println(model.containsAttribute("topics"));
-		//return "topics/viewTopics";
-	
-		return "redirect:/topics";
-}
-	
-	
-	/*
-	@Override
-	protected Map<String, Map<String, String>> referenceData(HttpServletRequest request) throws Exception {
- 
-		Map referenceData = new HashMap();
- 
- 
-		//Data referencing for country dropdown box
-		Map<String,String> subjects = new LinkedHashMap<String,String>();
-		subjects.put("Maths", "Maths");
 		
-		referenceData.put("subjectsList", subjects);
- 
-		//Data referencing for java skills list box
-		Map<String,String> grades = new LinkedHashMap<String,String>();
-		grades.put("1", "1");
-		grades.put("2", "2");
-		
-		referenceData.put("gradesList", grades);
- 
-		return referenceData;
-	}*/
-
-	/*@ModelAttribute("subjectList")
-	public Map<String,String> populateWebFrameworkList() {
- 
-		//Data referencing for web framework checkboxes
-		Map<String,String> subjects = new LinkedHashMap<String,String>();
-		subjects.put("Maths", "Maths");
- 
-		return subjects;
-	}*/
-
-
-
-
+		model.addAttribute(topics);
 	
-
-	
+		return "topics/viewTopics";
+	}
 	@ModelAttribute("subjects")
 	public Map<Long,String> populateSubjectsList() {
  List<Subject> subjectsList = subjectService.getSubjects();
@@ -157,4 +136,6 @@ System.out.println("Subject Id >>>>>>"+id);
 		
 		return grades;
 	}
+
+
 }

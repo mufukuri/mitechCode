@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/webflow 
+  http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+  <!-- By default, the first state is the start state. -->
+    <view-state id="registerTopic" view="subjects/createTopic">
+        <transition on="submitRegistration" to="topicAdded"/>
+        <transition on="cancelRegistration" to="cancelRegistration"/>
+    </view-state>
+
+    <end-state id="topicAdded"
+        view="externalRedirect:contextRelative:/home.jsp"/>
+    <end-state id="cancelRegistration"
+        view="externalRedirect:contextRelative:/home.jsp"/>
+</flow>
+
+    

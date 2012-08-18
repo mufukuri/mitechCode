@@ -11,10 +11,7 @@
         <put-attribute name="content" value="/WEB-INF/views/home.jsp"/>
     </definition>
 
-    <definition name="subject" extends="template">
-        <put-attribute name="content" value="/WEB-INF/views/subject.jsp"/>
-    </definition>
-    
+   
     
     <definition name="login" extends="login_template">
      <put-attribute name="content" value="/WEB-INF/views/login.jsp" />
@@ -52,10 +49,22 @@
         <put-attribute name="content" value="/WEB-INF/views/subjects/view.jsp"/>
     </definition>
      
+    <!--  <definition name="subjects/createTopic" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/subjects/createTopic.jsp"/>
+    </definition> -->
     
+       <!-- topic pages -->
+        <definition name="topics/view" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/topics/view.jsp"/>
+    </definition> 
+          <definition name="topics/addTopic" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/topics/addTopic.jsp"/>
+    </definition> 
           
-          
-          
+         
+          <definition name="topics/viewTopics" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/topics/viewTopics.jsp"/>
+    </definition>  
              
      <!-- school pages -->
       <definition name="schools/edit" extends="template">
@@ -71,6 +80,22 @@
     </definition>
           
     <!-- accounts pages -->
+    
+    
+    <!-- concepts pages -->
+    
+    <definition name="concepts/viewConcepts" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/concepts/viewConcepts.jsp"/>
+    </definition> 
+    
+    <definition name="concepts/addConcept" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/concepts/addConcept.jsp"/>
+    </definition> 
+    
+    <definition name="concepts/view" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/concepts/view.jsp"/>
+    </definition> 
+    
     <!-- <definition name="accounts/list" extends="template">
         <put-attribute name="content" value="/WEB-INF/views/accounts/list.jsp"/>
     </definition>
