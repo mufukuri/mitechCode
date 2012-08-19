@@ -24,6 +24,8 @@ public class ApplicationConstants implements Serializable {
 	public static final String ANSWER_PREFIX = "PREVIOUS_";
 	public static final String QUESTION_PREFIX = "RESULTS_";
 	public static final String NOT_REGISTRATION ="Student not registered\n";
+	public static final String DEFAULT_PASSWORD ="pass123#";
+	
 	
 	public static final String ANSWER_HOME_TEMPLATE_KEY = "answer.home.template";
 	public static final String QUESTION_HOME_TEMPLATE_KEY = "question.home.template";

@@ -26,6 +26,7 @@ public class User implements Persistable {
 	private String role;
 	@Pattern(regexp="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}",message="Invalid email address.")
 	private String email;
+	private long schoolId;
 	
 	public Long getId() {
 		return id;
@@ -109,6 +110,12 @@ public class User implements Persistable {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return getUsername().toString();
+	}
+	public long getSchoolId() {
+		return schoolId;
+	}
+	public void setSchoolId(long schoolId) {
+		this.schoolId = schoolId;
 	}
 	
 	

@@ -24,5 +24,5 @@
 
 <div>
 
-<a href="subjects?new"><span>New Profile</span></a>
+<a href="subjects?new"><span>New Subject</span></a>
 </div>

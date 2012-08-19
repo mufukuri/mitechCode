@@ -1,5 +1,7 @@
 package zw.co.mitech.mtutor.session;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -38,6 +40,21 @@ public class SchoolClassFacade extends AbstractFacade<SchoolClass>  {
 		query.setMaxResults(1);
 		try{
 			return (SchoolClass) query.getSingleResult();
+		}catch(Exception e){
+			return null;
+		}
+	}
+
+	public List<SchoolClass> findClassByTeacherID(Long teacherId) {
+		String sql = "SELECT s FROM SchoolClass s WHERE s.teacherId = :teacherId";
+		EntityManager em = getEntityManager();
+		Query query = em.createQuery(sql);
+		query.setParameter("teacherId", teacherId);
+		
+		
+		try{
+			List<SchoolClass> resultList = (List<SchoolClass>)query.getResultList();
+			return resultList;
 		}catch(Exception e){
 			return null;
 		}

@@ -10,7 +10,6 @@
     <definition name="home" extends="template">
         <put-attribute name="content" value="/WEB-INF/views/home.jsp"/>
     </definition>
-
    
     
     <definition name="login" extends="login_template">
@@ -95,6 +94,19 @@
     <definition name="concepts/view" extends="template">
         <put-attribute name="content" value="/WEB-INF/views/concepts/view.jsp"/>
     </definition> 
+    
+    <definition name="teachers/addTeacher" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/teachers/addTeacher.jsp"/>
+    </definition> 
+    
+    <definition name="teachers/view" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/teachers/view.jsp"/>
+    </definition>
+    
+    <definition name="sim" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/sim.jsp"/>
+    </definition>
+    
     
     <!-- <definition name="accounts/list" extends="template">
         <put-attribute name="content" value="/WEB-INF/views/accounts/list.jsp"/>

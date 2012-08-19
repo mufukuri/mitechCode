@@ -171,6 +171,13 @@ public class Txt implements Serializable {
 		
 		this.message = message;
 	}
+	
+	public String getHtmlMessage() {
+		if(message ==null)
+			return "";
+		return message.replace("\n", "<br/>");
+	}
+	
 	public String getCustomerState() {
 		return customerState;
 	}

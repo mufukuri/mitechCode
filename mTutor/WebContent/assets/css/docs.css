@@ -17,6 +17,12 @@ body {
   background-position: 0 40px;
 }
 
+pre {
+	font-family: serif;
+	white-space: normal;
+	
+}
+
 
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */

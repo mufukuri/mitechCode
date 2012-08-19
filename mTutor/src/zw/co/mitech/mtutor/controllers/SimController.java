@@ -1,5 +1,7 @@
 package zw.co.mitech.mtutor.controllers;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,8 @@ public class SimController {
 	@RequestMapping("/process")
 	public ModelAndView simulate(HttpServletRequest request) {
 		ModelAndView modelAndView = new ModelAndView("sim");
+		Principal principal = request.getUserPrincipal();
+		
 		Txt txt = new Txt(request);
 		txt = txtProcessor.processTxtRequest(txt);
 		txt.serialiseSession();
