@@ -4,7 +4,9 @@
  */
 package zw.co.mitech.mtutor.session;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -70,6 +72,17 @@ public class TopicFacade extends AbstractFacade<Topic> {
 		query.setParameter("subjectId", subjectId);
 		return query.getResultList();
 	
+	}
+
+	public Set<Topic> getTopicsBySubjectAndGrade(Long subjectId,
+			Long academiclevelId) {
+		String sql = "SELECT t FROM Topic t WHERE t.subjectId= :subjectId  AND t.academicLevelId= :academicLevel ORDER BY t.topicName ASC ";
+		EntityManager em = getEntityManager();
+		Query query = em.createQuery(sql);
+		query.setParameter("subjectId", subjectId);
+		query.setParameter("academicLevel", academiclevelId);
+		Set results = new HashSet<Topic>(query.getResultList());
+		return results ;
 	}
     
 }

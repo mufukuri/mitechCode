@@ -31,4 +31,5 @@
 <div>
 
 <a href="subjects?new"><span>New Subject</span></a>
+<a href="addQuiz"><span>Add Quiz</span></a>
 </div>

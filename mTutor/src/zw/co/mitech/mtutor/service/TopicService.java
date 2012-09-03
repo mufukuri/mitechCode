@@ -1,6 +1,7 @@
 package zw.co.mitech.mtutor.service;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,17 @@ public class TopicService {
 	public List<Topic> getTopicsBySubjectOrderedByGrade(Long subjectId) {
 		// TODO Auto-generated method stub
 		return topicFacade.getTopicsBySubjectOrderedByGrade(subjectId);
+	}
+
+	public Set<Topic> findTopicsBySubjectAndGrade(Long subjectId,
+			Long academiclevelId) {
+		// TODO Auto-generated method stub
+		return topicFacade.getTopicsBySubjectAndGrade(subjectId,academiclevelId);
+	}
+
+	public Topic getTopicById(long id) {
+		// TODO Auto-generated method stub
+		return topicFacade.find(id);
 	}
 	
 	

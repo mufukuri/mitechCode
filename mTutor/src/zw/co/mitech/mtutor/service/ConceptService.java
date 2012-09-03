@@ -1,6 +1,7 @@
 package zw.co.mitech.mtutor.service;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,9 @@ public void addConcept(Concept concept){
 	
 }
 
-public List<Concept> getConceptsByTopicIdOrderedBySequence(Long topicId) {
-	return conceptFacade.getConceptsByTopicIdOrderedBySequence(topicId);
+public Set<Concept> getConceptsByTopicIdOrderedBySequence(Long topicId) {
+	Set<Concept> results = new HashSet<Concept>(conceptFacade.getConceptsByTopicIdOrderedBySequence(topicId));
+	return results;
 }
 
 

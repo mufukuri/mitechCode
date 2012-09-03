@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@taglib prefix="test" uri="/WEB-INF/tags/topicDescriptor.tld"%>
 <div>
 <h2>View Concept</h2>
        
@@ -23,7 +24,7 @@
       </tr>
       <tr>
          <td>Topic:</td>
-         <td><c:out value="${concept.topicId}"></c:out> 
+         <td> <test:topicTag topicId="${concept.topicId}"></test:topicTag> 
             
          </td>
          

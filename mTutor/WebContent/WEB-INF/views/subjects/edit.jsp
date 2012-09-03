@@ -19,6 +19,8 @@
    <br>
    <input name="commit" type="submit" 
                     value="Create Subject." />
+                    <input name="cancel" type="submit" 
+                    value="Cancel" />  
 </fieldset>
 </sf:form>
 

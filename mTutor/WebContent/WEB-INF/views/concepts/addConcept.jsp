@@ -32,8 +32,9 @@
    </table>
    <br>
     <input name="commit" type="submit" 
-                    value="Create topic." />
-	  <input name="commit" type="submit" 
+                    value="Create Concept" />
+     
+	  <input name="cancel" type="submit" 
                     value="Cancel" />  
 </fieldset>
 </sf:form>

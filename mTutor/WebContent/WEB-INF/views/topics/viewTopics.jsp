@@ -6,7 +6,8 @@
  <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
- 
+  <%@taglib prefix="topic" uri="/WEB-INF/tags/topicDescriptor.tld"%>
+    <%@taglib prefix="subject" uri="/WEB-INF/tags/subjectDescriptor.tld"%>
 
 <h2>Topics</h2>
 <table >
@@ -23,7 +24,7 @@
             <td>${topic.topicName}</td>
        <td>${topic.description}</td>
        <td>${topic.toUpgrade}</td>
-        <td>${topic.subjectId}</td>
+        <td><subject:subjectTag subjectId="${topic.subjectId}"></subject:subjectTag> </td>
         <td>${topic.academicLevelId}</td>
      <td><a href="<s:url value="/topics/${topic.id}"/>">View Concepts</a></td>
           

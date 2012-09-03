@@ -7,6 +7,7 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
  <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+  <%@taglib prefix="topic" uri="/WEB-INF/tags/topicDescriptor.tld"%>
  
  
  <script language="javascript">
@@ -24,7 +25,7 @@ function deletePerson(url){
 // -->
 </script>
 
-<h2>Topics</h2>
+<h2>Concepts</h2>
 <table >
   <tr>
         <th>Concept</th>
@@ -37,12 +38,12 @@ function deletePerson(url){
    <tr>
             <td>${concept.conceptName}</td>
        <td>${concept.topicSequence}</td>
-       <td>${concept.topicId}</td>
+       <td><topic:topicTag topicId="${concept.topicId}"></topic:topicTag> </td>
        <td><c:url var="deleteUrl" value="/concept/delete.jsp">
             <c:param name="id" value="${concept.id}" />
         </c:url>
         
-        <a href="javascript:deletePerson('<c:out value="${deleteUrl}"/>')">remove</a> 
+        <a href="javascript:deleteConcept('<c:out value="${deleteUrl}"/>')">remove</a> 
         </td>
      
   
@@ -58,4 +59,5 @@ function deletePerson(url){
 <div>
 
 <a href="concepts?new"><span>New Concept</span></a>
+<a href="addQuiz"><span>Add Quiz</span></a>
 </div>

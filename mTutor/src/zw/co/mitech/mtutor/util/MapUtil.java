@@ -59,15 +59,51 @@ public class MapUtil implements Serializable {
 		return attributesMap;
 	}
 	
+	public static Map<Long,Long> convertAttributesStringToLongMap(String attributesString){
+		
+		if(attributesString == null){
+			return null;
+		}
+		Map<Long, Long> attributesMap = new TreeMap<Long, Long>();
+		int startIndex = 0;
+		int endIndex =0;
+		endIndex=attributesString.indexOf(EQUALS,startIndex);
+		System.out.println("End index::::::"+endIndex);
+		System.out.println("start index::::::"+startIndex);
+		String key,value;
+		while(endIndex >= 0){
+			
+			key = attributesString.substring(startIndex,endIndex);
+			startIndex = endIndex + EQUALS.length();
+			endIndex=attributesString.indexOf(SEPERATOR,startIndex);
+			value =attributesString.substring(startIndex,endIndex);
+			startIndex = endIndex + SEPERATOR.length();
+			
+			attributesMap.put(Long.parseLong(key), Long.parseLong(value));
+			endIndex=attributesString.indexOf(EQUALS,startIndex);
+		}
+		return attributesMap;
+	}
+	
 	
 	public static void main(String[] args){
-		Map<String, String> attributesMap = new TreeMap<String, String>();
-		attributesMap.put("mobilenumber", "0772890497");
-		attributesMap.put("questionNumber", "12");
-		String str =convertAttributesMapToString(attributesMap);
+		Map<Long, Long> attributesMap = new TreeMap<Long, Long>();
+		attributesMap.put(2L, 2L);
+		attributesMap.put(4L, 4L);
+		String str =convertAttributesLongMapToString(attributesMap);
 		convertAttributesStringToMap(str);
 		System.out.println("********* string " + str);
 		
+	}
+
+
+	public static String convertAttributesLongMapToString(
+			Map<Long, Long> attributesMap) {
+		StringBuffer sb = new StringBuffer();
+		for (Long key : attributesMap.keySet()) {
+			sb.append(key + EQUALS + attributesMap.get(key) + SEPERATOR );
+		}
+		return sb.toString();
 	}
 	
 	

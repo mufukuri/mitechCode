@@ -44,11 +44,12 @@ public class Quiz implements Serializable, Persistable {
 	 	private long conceptId;
 	 	private long subjectId;
 	 	private String questions;
-	
+	 
 	 	//assignment,syllabus,class
 	 	private String quizType;
 	 	private long quizNumber;
 	 	private long teacherId;
+	 	private long academicLevelId;
 	 	
 	 	
 	 	
@@ -324,6 +325,24 @@ public class Quiz implements Serializable, Persistable {
 
 		public void setQuestions(String questions) {
 			this.questions = questions;
+		}
+
+
+
+
+
+
+		public long getAcademicLevelId() {
+			return academicLevelId;
+		}
+
+
+
+
+
+
+		public void setAcademicLevelId(long academicLevelId) {
+			this.academicLevelId = academicLevelId;
 		}
 		
 		

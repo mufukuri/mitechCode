@@ -63,6 +63,8 @@ public class QuizQuestionService {
 	private QuizService quizService;
 	@Autowired
 	private RankingsFacade rankingFacade;
+	@Autowired
+	private QuizQuestionFacade questionFacade;
 	
 	
 	
@@ -346,6 +348,10 @@ public class QuizQuestionService {
 		txt.putInSession(ApplicationConstants.MENU_LEVEL, MenuLevel.QUESTION);
 		txt = gotoNextQuestion(txt);
 		return txt;
+	}
+
+	public void addQuestion(QuizQuestion question) {
+		questionFacade.create(question);
 	}
 
 }

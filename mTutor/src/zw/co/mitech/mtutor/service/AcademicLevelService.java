@@ -1,6 +1,7 @@
 package zw.co.mitech.mtutor.service;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,16 @@ public class AcademicLevelService {
 	
 	
 	
-	public List<AcademicLevel> getAllGrades(){
-		return facade.findAll();
+	public Set<AcademicLevel> getAllGrades(){
+		Set<AcademicLevel> grades = new HashSet<AcademicLevel>(facade.findAll());
+		return grades;
+	}
+
+
+
+	public AcademicLevel getGradeById(Long gradeId) {
+		// TODO Auto-generated method stub
+		return facade.find(gradeId);
 	}
 
 }

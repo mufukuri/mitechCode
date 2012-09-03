@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -23,6 +24,7 @@ import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
 
 import zw.co.mitech.mtutor.entities.AcademicLevel;
+import zw.co.mitech.mtutor.entities.Concept;
 import zw.co.mitech.mtutor.entities.Subject;
 import zw.co.mitech.mtutor.entities.Topic;
 import zw.co.mitech.mtutor.service.AcademicLevelService;
@@ -66,9 +68,9 @@ public class SubjectController{
 
 	
 	@RequestMapping( method = RequestMethod.GET,params="list")
-	public String listUsers(Model model) {
+	public String listSubjects(Model model) {
 		System.out.println("Subjects");
-		List<Subject> subjects= subjectService.getSubjects();
+		Set<Subject> subjects= subjectService.getSubjects();
 	
 		
 		model.addAttribute(subjects);
@@ -125,7 +127,18 @@ System.out.println("Subject Id >>>>>>"+id);
 		return subjects;
 	}*/
 
-
+	@RequestMapping(method=RequestMethod.POST, params = "cancel")
+	public ModelAndView cancel(Model model, HttpServletRequest request) {
+		
+		Set<Subject> subjects= subjectService.getSubjects();
+		
+		
+		model.addAttribute(subjects);
+	
+		return new ModelAndView("subjects/list","subjects",subjects);
+		
+		} 
+		
 
 
 	
@@ -133,7 +146,7 @@ System.out.println("Subject Id >>>>>>"+id);
 	
 	@ModelAttribute("subjects")
 	public Map<Long,String> populateSubjectsList() {
- List<Subject> subjectsList = subjectService.getSubjects();
+ Set<Subject> subjectsList = subjectService.getSubjects();
  Map<Long,String> subjects = new LinkedHashMap<Long,String>();
  for(Subject subject: subjectsList){
 	 subjects.put(new Long(subject.getId()), subject.getName());
@@ -147,7 +160,7 @@ System.out.println("Subject Id >>>>>>"+id);
 	
 	@ModelAttribute("grades")
 	public Map<Long,String> populateGradesList() {
- List<AcademicLevel> gradesList = academicService.getAllGrades();
+ Set<AcademicLevel> gradesList = academicService.getAllGrades();
  Map<Long,String> grades = new LinkedHashMap<Long,String>();
  for(AcademicLevel grade: gradesList){
 	 grades.put(new Long(grade.getId()), grade.getLevelName());

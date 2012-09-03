@@ -1,6 +1,7 @@
 package zw.co.mitech.mtutor.controllers;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import zw.co.mitech.mtutor.entities.Concept;
-import zw.co.mitech.mtutor.entities.Topic;
 import zw.co.mitech.mtutor.service.AcademicLevelService;
 import zw.co.mitech.mtutor.service.ConceptService;
 import zw.co.mitech.mtutor.service.SubjectService;
@@ -60,7 +60,7 @@ public class ConceptController {
 	    public String delete(Concept concept, HttpServletRequest request,Model model) {
 	        conceptService.deleteConcept(concept);
 	        Long topicId = (Long) request.getSession().getAttribute("topicId");
-			List<Concept> concepts= conceptService.getConceptsByTopicIdOrderedBySequence(topicId);
+			Set<Concept> concepts= conceptService.getConceptsByTopicIdOrderedBySequence(topicId);
 			
 			
 			model.addAttribute(concepts);
@@ -75,7 +75,7 @@ public class ConceptController {
 			
 			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>subject is Session>>>>"+request.getSession().getAttribute("topicId"));
 			Long topicId = (Long) request.getSession().getAttribute("topicId");
-			List<Concept> concepts= conceptService.getConceptsByTopicIdOrderedBySequence(topicId);
+			Set<Concept> concepts= conceptService.getConceptsByTopicIdOrderedBySequence(topicId);
 			
 			
 			model.addAttribute(concepts);
@@ -97,4 +97,27 @@ public class ConceptController {
 		 model.addAttribute(concept);
 		return "concepts/addConcept";
 	}
+	
+	@RequestMapping(method=RequestMethod.POST, params = "cancel")
+	public ModelAndView cancel(Model model, HttpServletRequest request) {
+		
+		System.out.println("Model does it have a thing >>>>>>>>>"+model);
+		
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>subject is Session>>>>"+request.getSession().getAttribute("topicId"));
+		Long topicId = (Long) request.getSession().getAttribute("topicId");
+		Set<Concept> concepts= conceptService.getConceptsByTopicIdOrderedBySequence(topicId);
+		
+		
+		model.addAttribute(concepts);
+	
+		return new ModelAndView("concepts/viewConcepts","concepts",concepts);
+		
+		} 
+		
+		
+		
+	
+	
+	
+	
 }

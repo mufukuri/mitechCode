@@ -22,6 +22,7 @@ import zw.co.mitech.mtutor.entities.StudentConcept;
 import zw.co.mitech.mtutor.entities.StudentQuiz;
 import zw.co.mitech.mtutor.entities.StudentTopic;
 import zw.co.mitech.mtutor.entities.Topic;
+import zw.co.mitech.mtutor.entities.User;
 import zw.co.mitech.mtutor.session.AcademicLevelFacade;
 import zw.co.mitech.mtutor.session.AssignmentFacade;
 import zw.co.mitech.mtutor.session.ConceptFacade;
@@ -639,6 +640,30 @@ public class QuizService {
 		}
 		txt.putInSession(ApplicationConstants.QUIZ_ID, quizId);
 		return getQuizQuestion(txt);
+	}
+
+	public void addQuiz(Quiz quiz) {
+			quizFacade.create(quiz);
+	}
+
+	public List<Quiz> getQuizzes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	public String generateQuizCode(){
+		return quizFacade.generateQuizCode();
+	}
+
+	public Quiz getQuizById(long quizId) {
+		// TODO Auto-generated method stub
+		return quizFacade.find(quizId);
+	}
+
+	public void updateQuiz(Quiz quiz) {
+		quizFacade.edit(quiz);
+		
 	}
 	
 	

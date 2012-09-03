@@ -49,14 +49,16 @@ public class ConceptFacade  extends AbstractFacade<Concept>  {
 	}
 
 	public List<Concept> getConceptsByTopicIdOrderedBySequence(Long topicId) {
-		String sql = "SELECT c FROM Concept c WHERE  c.topicId = :topic ORDER BY c.topicSequence ASC";
+		String sql = "SELECT c FROM Concept c WHERE  c.topicId = :topic ORDER BY c.topicSequence DESC";
 		EntityManager em = getEntityManager();
 		Query query = em.createQuery(sql);
 	
 		query.setParameter("topic", topicId);
 		
+		List<Concept> results =(List<Concept>) query.getResultList();
+		System.out.println(">>>>>>>>>>>>>>>size>>>>>>>>>>>>>"+results.size());
 		
-	return (List<Concept>) query.getResultList();
+		return results;
 		
 	}
 

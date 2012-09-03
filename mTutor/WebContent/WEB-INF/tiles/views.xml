@@ -108,6 +108,30 @@
     </definition>
     
     
+    
+       <!-- quiz pages -->
+       
+        <definition name="quizzes/addQuiz" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/quizzes/addQuiz.jsp"/>
+    </definition>
+    
+          <definition name="quizzes/viewQuiz" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/quizzes/viewQuiz.jsp"/>
+    </definition>
+    
+            <!-- question pages -->
+        
+        
+    
+           <definition name="questions/addQuestions" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/questions/addQuestions.jsp"/>
+    </definition>
+    
+         <definition name="questions/viewQuestion" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/questions/viewQuestion.jsp"/>
+    </definition>
+    
+    
     <!-- <definition name="accounts/list" extends="template">
         <put-attribute name="content" value="/WEB-INF/views/accounts/list.jsp"/>
     </definition>

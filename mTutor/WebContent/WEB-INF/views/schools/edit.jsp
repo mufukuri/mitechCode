@@ -39,8 +39,8 @@
        <td>
       <sf:select path="province">
       <sf:option value="NONE" label="--- Select ---"></sf:option>
-      <sf:option value="Harare" label="Harare"></sf:option>
-     
+
+      <sf:options items="${provinces}"/>
       
       </sf:select>
       </td>
@@ -51,6 +51,8 @@
    <br>
    <input name="commit" type="submit" 
                     value="Create School." />
+                     <input name="cancel" type="submit" 
+                    value="Cancel" />
 </fieldset>
 </sf:form>
 

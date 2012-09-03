@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib>
+<tlibversion>1.0</tlibversion>
+<jspversion>1.1</jspversion>
+<shortname>gradeTag</shortname>
+<info>Sample taglib for Grades</info>
+
+ <tag>
+    <name>subjectTag</name>
+    <tagclass>zw.co.mitech.mtutor.tags.GradeTag</tagclass>
+    <info>Grade Tag</info>
+    
+    
+    <attribute>
+      <name>gradeId</name>
+      <required>true</required>
+       <rtexprvalue>true</rtexprvalue>
+  </attribute>
+    
+</tag> 
+
+
+</taglib> 

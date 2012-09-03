@@ -1,7 +1,9 @@
 package zw.co.mitech.mtutor.service;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,9 +25,15 @@ public class SubjectService implements Serializable {
 		
 	}
 
-	public List<Subject> getSubjects() {
+	public Set<Subject> getSubjects() {
 		// TODO Auto-generated method stub
-		return facade.findAll();
+		HashSet<Subject> subjectSet = new HashSet<Subject>(facade.findAll());
+		return subjectSet;
+	}
+
+	public Subject getSubjectById(Long subjectId) {
+		// TODO Auto-generated method stub
+		return facade.find(subjectId);
 	}
 
 }

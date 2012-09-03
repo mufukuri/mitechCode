@@ -3,6 +3,7 @@ package zw.co.mitech.mtutor.controllers;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -44,7 +45,7 @@ public class TopicController {
 
 		request.getSession().setAttribute("topicId", id);
 
-		return "topics/view";
+		return "redirect:/concepts";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -103,11 +104,27 @@ public class TopicController {
 		model.addAttribute(topics);
 
 		return "topics/viewTopics";
+		
 	}
 
+	@RequestMapping(method=RequestMethod.POST, params = "cancel")
+	public ModelAndView cancel(Model model, HttpServletRequest request) {
+		
+		Long subjectId = (Long) request.getSession().getAttribute("subjectId");
+		List<Topic> topics = topicService
+				.getTopicsBySubjectOrderedByGrade(subjectId);
+
+		model.addAttribute(topics);
+
+		
+		return new ModelAndView("topics/viewTopics","topics",topics);
+		
+		} 
+	
+	
 	@ModelAttribute("subjects")
 	public Map<Long, String> populateSubjectsList() {
-		List<Subject> subjectsList = subjectService.getSubjects();
+		Set<Subject> subjectsList = subjectService.getSubjects();
 		Map<Long, String> subjects = new LinkedHashMap<Long, String>();
 		for (Subject subject : subjectsList) {
 			subjects.put(new Long(subject.getId()), subject.getName());
@@ -119,7 +136,7 @@ public class TopicController {
 
 	@ModelAttribute("grades")
 	public Map<Long, String> populateGradesList() {
-		List<AcademicLevel> gradesList = academicService.getAllGrades();
+		Set<AcademicLevel> gradesList = academicService.getAllGrades();
 		Map<Long, String> grades = new LinkedHashMap<Long, String>();
 		for (AcademicLevel grade : gradesList) {
 			grades.put(new Long(grade.getId()), grade.getLevelName());

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib>
+<tlibversion>1.0</tlibversion>
+<jspversion>1.1</jspversion>
+<shortname>subjectTag</shortname>
+<info>Sample taglib for Subjects</info>
+
+ <tag>
+    <name>subjectTag</name>
+    <tagclass>zw.co.mitech.mtutor.tags.SubjectTag</tagclass>
+    <info>Topic Tag</info>
+    
+    
+    <attribute>
+      <name>subjectId</name>
+      <required>true</required>
+       <rtexprvalue>true</rtexprvalue>
+  </attribute>
+    
+</tag> 
+
+
+</taglib> 
