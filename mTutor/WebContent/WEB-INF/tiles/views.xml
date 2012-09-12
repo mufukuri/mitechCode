@@ -5,7 +5,7 @@
 <tiles-definitions>
     <definition name="template" template="/WEB-INF/views/template/template.jsp"/>
 
-    <definition name="login_template" template="/WEB-INF/views/template/login_template.jsp"/>
+    <definition name="login_template" template="/WEB-INF/views/template/login_header.jsp"/>
     
     <definition name="home" extends="template">
         <put-attribute name="content" value="/WEB-INF/views/home.jsp"/>
@@ -14,10 +14,6 @@
     
     <definition name="login" extends="login_template">
      <put-attribute name="content" value="/WEB-INF/views/login.jsp" />
-      <put-attribute name="aside" value="/WEB-INF/views/side.jsp" />
-     
-   
-      
    </definition>
     
     

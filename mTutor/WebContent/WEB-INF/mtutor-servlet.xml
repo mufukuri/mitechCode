@@ -19,6 +19,8 @@
 	<context:component-scan base-package="zw.co.mitech.mtutor" />
 	
 	 <mvc:resources mapping="/resources/**" location="/resources/"/>
+	 <mvc:resources mapping="/statics/**" location="/statics/"/>
+	 
     <!-- Tiles -->
     <bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
         <property name="definitions">
