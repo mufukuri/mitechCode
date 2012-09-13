@@ -127,6 +127,10 @@
         <put-attribute name="content" value="/WEB-INF/views/questions/viewQuestion.jsp"/>
     </definition>
     
+    <definition name="demo/studentReport" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/demo/studentReport.jsp"/>
+    </definition>
+    
     
     <!-- <definition name="accounts/list" extends="template">
         <put-attribute name="content" value="/WEB-INF/views/accounts/list.jsp"/>

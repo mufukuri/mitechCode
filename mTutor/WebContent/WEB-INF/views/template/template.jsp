@@ -10,7 +10,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>:: Mtutor :: Learning outside the box </title>
-    
+    	<script  src="<c:url value="/statics/js/jquery.min.js" />"></script>
+			
         <!-- Bootstrap framework -->
             <link rel="stylesheet" href="<c:url value="/statics/bootstrap/css/bootstrap.min.css" />" />
             <link rel="stylesheet" href="<c:url value="/statics/bootstrap/css/bootstrap-responsive.min.css" />" />
@@ -36,8 +37,7 @@
         <!-- main styles -->
             <link rel="stylesheet" href="<c:url value="/statics/css/style.css" />" />
 			
-            <!-- <link rel="stylesheet" href="<c:url value="/statics/http://fonts.googleapis.com/css?family=PT+Sans" />" />  -->
-	
+            
         <!-- Favicon -->
             <link rel="shortcut icon" href="favicon.ico" />
 		
@@ -208,22 +208,16 @@
 									</div>
 									<div class="accordion-group">
 										<div class="accordion-heading">
-											<a href="#collapseFour" data-parent="#side_accordion" data-toggle="collapse" class="accordion-toggle">
+											<a  href="#collapseFour" data-parent="#side_accordion" data-toggle="collapse" class="accordion-toggle">
 												<i class="icon-list"></i> Simulator
 											</a>
 										</div>
 										<div class="accordion-body collapse in" id="collapseFour">
 											<div class="accordion-inner">
 												<ul class="nav nav-list">
-													<li class="nav-header">People</li>
-													<li class="active"><a href="javascript:void(0)">Account Settings</a></li>
-													<li><a href="javascript:void(0)">IP Adress Blocking</a></li>
-													<li class="nav-header">System</li>
-													<li><a href="javascript:void(0)">Site information</a></li>
-													<li><a href="javascript:void(0)">Actions</a></li>
-													<li><a href="javascript:void(0)">Cron</a></li>
-													<li class="divider"></li>
-													<li><a href="javascript:void(0)">Help</a></li>
+													
+													<li class="active"><a href="/mTutor/sim/page">Simulator</a></li>
+													
 												</ul>
 											</div>
 										</div>
@@ -238,10 +232,8 @@
 										<div class="accordion-body collapse" id="collapseFive">
 											<div class="accordion-inner">
 												<ul class="nav nav-list">
-													<li><a href="javascript:void(0)">Members</a></li>
-													<li><a href="javascript:void(0)">Members groups</a></li>
-													<li><a href="javascript:void(0)">Users</a></li>
-													<li><a href="javascript:void(0)">Users groups</a></li>
+													<li><a href="/mTutor/demo?studentReport">Class Report</a></li>
+													<li><a href="javascript:void(0)">School Report</a></li>
 												</ul>
 												
 											</div>
@@ -262,8 +254,7 @@
 			
 			</div>
             
-            <script  src="<c:url value="/statics/js/jquery.min.js" />"></script>
-			<!-- smart resize event -->
+           <!-- smart resize event -->
 			<script  src="<c:url value="/statics/js/jquery.debouncedresize.min.js" />"></script>
 			<!-- hidden elements width/height -->
 			<script  src="<c:url value="/statics/js/jquery.actual.min.js" />"></script>
@@ -296,12 +287,20 @@
            
             <!-- charts -->
          
+         
+            
+            <!-- datatable -->
+            <script src="<c:url value="/statics/lib/datatables/jquery.dataTables.min.js" />"></script>
+            <script src="<c:url value="/statics/lib/datatables/extras/Scroller/media/js/Scroller.min.js" />"></script>
+            <!-- datatable functions -->
+            <script src="<c:url value="/statics/js/gebo_datatables.js" />"></script>
           
             <!-- sortable/filterable list -->
             <script  src="<c:url value="/statics/lib/list_js/list.min.js" />"></script>
             <script  src="<c:url value="/statics/lib/list_js/plugins/paging/list.paging.min.js" />"></script>
             
-    
+    		<script src="<c:url value="/statics/js/highcharts.js" />"></script>
+			<script src="<c:url value="/statics/js/modules/exporting.js" />"></script>
 			<script>
 				$(document).ready(function() {
 					//* show all elements & remove preloader
