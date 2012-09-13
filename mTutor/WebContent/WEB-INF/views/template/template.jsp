@@ -107,8 +107,10 @@
                                             <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-wrench icon-white"></i> Settings <b class="caret"></b></a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="charts.html">Subjects</a></li>
-                                                <li><a href="calendar.html">Topics</a></li>
-                                                <li><a href="datatable.html">Concepts</a></li>
+                                                <li><a href="/mTutor/topics?new">Add Topic</a></li>
+                                                <li><a href="/mTutor/concepts?new">Add Concepts</a></li>
+                                                <li><a href="/mTutor/addQuiz">Add Quiz</a></li>
+                                                
                                             </ul>
                                         </li>
                                         <li class="dropdown">

@@ -7,6 +7,7 @@
 
     <definition name="login_template" template="/WEB-INF/views/template/login_header.jsp"/>
     
+    
     <definition name="home" extends="template">
         <put-attribute name="content" value="/WEB-INF/views/home.jsp"/>
     </definition>

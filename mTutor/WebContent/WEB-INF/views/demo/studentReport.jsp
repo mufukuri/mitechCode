@@ -98,6 +98,8 @@ $(function () {
  		
  	</table>
  	</div>
+ 	
+ 	
  	<div class="span8">
  		<div id="summary"></div>
  	</div>
