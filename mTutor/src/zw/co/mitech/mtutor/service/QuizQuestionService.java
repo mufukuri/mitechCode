@@ -16,13 +16,11 @@ import zw.co.mitech.mtutor.entities.StudentSubject;
 import zw.co.mitech.mtutor.entities.StudentTopic;
 import zw.co.mitech.mtutor.entities.Topic;
 import zw.co.mitech.mtutor.entities.TopicMarker;
-import zw.co.mitech.mtutor.session.AcademicLevelFacade;
 import zw.co.mitech.mtutor.session.ConceptFacade;
 import zw.co.mitech.mtutor.session.QuizFacade;
 import zw.co.mitech.mtutor.session.QuizQuestionFacade;
 import zw.co.mitech.mtutor.session.RankingsFacade;
 import zw.co.mitech.mtutor.session.StudentConceptFacade;
-import zw.co.mitech.mtutor.session.StudentFacade;
 import zw.co.mitech.mtutor.session.StudentQuizFacade;
 import zw.co.mitech.mtutor.session.StudentSubjectFacade;
 import zw.co.mitech.mtutor.session.StudentTopicFacade;
@@ -198,11 +196,13 @@ public class QuizQuestionService {
 					//clear topicMarker
 					
 					nextConcept = conceptFacade.findConceptByTopicAndSequence(topicMarker.getTopicId(),1);
+					if(nextConcept!=null){
 					topicMarker.setConceptId(nextConcept.getId());
 					topicMarker.setConceptNumber(nextConcept.getTopicSequence());
 					nextQuiz = quizFacade.findQuiz(nextConcept.getId(),QuizType.CONCEPT,1);
 					topicMarker.setQuizId(nextQuiz.getId());
 					topicMarker.setQuizNumber(nextQuiz.getQuizNumber());
+					}
 					//notify student that they have attempted all quizzes on this topic
 					msg = Messages.get(ApplicationConstants.END_TOPIC_QUIZ_MSG);
 				}
@@ -218,7 +218,12 @@ public class QuizQuestionService {
 			int numOfStudents = rankingFacade.getNumberOfStudentsThatTookQuiz(quiz.getId());
 			
 			msg = msg.replace("${score}", studentQuiz.getPoints() + "/" + studentQuiz.getTotal());
-			msg = msg.replace("${rank}", ""+rank.getRank());
+			long position = rank.getRank();
+			if(position == 0){
+				position = 1;
+			}
+			//msg = msg.replace("${rank}", ""+rank.getRank());
+			msg = msg.replace("${rank}", ""+position);
 			msg = msg.replace("${numberOfStudents}", ""+numOfStudents);
 			msg = msg.replace("${percentage}", StringUtil.getPercentage( studentQuiz.getPoints(), studentQuiz.getTotal()));
 			
